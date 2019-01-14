@@ -53,7 +53,7 @@
   service: name=tomcat state=started enabled=yes
   
 - name: start tomcat manually
-  command: chdir=/opt/apache-tomcat-7.0.61/bin/ ./startup.sh
+  command: chdir=/opt/apache-tomcat-7.0.61/bin/ /opt/apache-tomcat-7.0.61/bin/startup.sh
 
 - name: deploy iptables rules
   template: src=iptables-save dest=/etc/sysconfig/iptables
