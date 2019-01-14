@@ -49,10 +49,8 @@
 - name: Install Tomcat init script
   copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
  
-- name: Run Tomcat
-  shell: ./startup.sh
-  args:
-    chdir: /opt/apache-tomcat-7.0.61/bin
+- name: Start Tomcat
+  service: name=tomcat state=started enabled=yes
 
 - name: deploy iptables rules
   template: src=iptables-save dest=/etc/sysconfig/iptables
