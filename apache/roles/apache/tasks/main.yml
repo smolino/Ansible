@@ -1,0 +1,3 @@
+---
+- name: configure httpd
+  template: src=httpd.conf dest=/etc/httpd/conf/

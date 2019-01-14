@@ -1,0 +1,19 @@
+---
+- hosts: web
+  vars:
+    mariadb_port: 3306
+  remote_user: root
+  tasks:
+  - name: ensure mariadb is at the latest version
+    yum:
+      name: mariadb-server
+      state: latest
+  - name: ensure mariadb is running
+    service:
+      name: mariadb
+      state: started
+  handlers:
+  - name: restart mariadb
+    service:
+      name: mariadb
+      state: restarted
