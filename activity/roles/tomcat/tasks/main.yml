@@ -3,7 +3,7 @@
   yum:
     name: unzip
 
-- name: Download Tomcat
+- name: Download Activiti
   get_url: url=https://github.com/Activiti/Activiti/releases/download/activiti-5.22.0/activiti-5.22.0.zip dest=/opt/activiti-5.22.0.zip
 
 - name: Extract archive
