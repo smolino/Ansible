@@ -52,7 +52,7 @@
 - name: Start Tomcat
   service: name=tomcat state=started enabled=yes
   
-- name start tomcat manually
+- name: start tomcat manually
   command: chdir=/opt/apache-tomcat-7.0.61/bin/ ./startup.sh
 
 - name: deploy iptables rules
