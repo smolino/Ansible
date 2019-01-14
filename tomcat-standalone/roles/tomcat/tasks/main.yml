@@ -22,6 +22,22 @@
 - name: Change ownership of Tomcat installation
   file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
 
+- name: Install unzip
+  yum:
+    name: unzip
+
+- name: Download Activiti
+  get_url: url=https://github.com/Activiti/Activiti/releases/download/activiti-5.22.0/activiti-5.22.0.zip dest=/opt/activiti-5.22.0.zip
+
+- name: Extract archive
+  command: chdir=/usr/share /bin/unzip /opt/activiti-5.22.0.zip -d /opt/
+
+- name: Copy war to webapp
+  command: cp /opt/activiti-5.22.0/wars/activiti-explorer.war /opt/apache-tomcat-7.0.61/webapps/
+
+- name: Copy 2nd war to webapp
+  command: cp /opt/activiti-5.22.0/wars/activiti-rest.war /opt/apache-tomcat-7.0.61/webapps/
+
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
   notify: restart tomcat
@@ -50,4 +66,4 @@
   when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
 
 - name: wait for tomcat to start
-  wait_for: port={{http_port}}
+  wait_for: port=8080
