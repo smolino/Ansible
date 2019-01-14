@@ -10,7 +10,7 @@ Run Playbooks in the following order:
 Apache 
 MariaDb
 Tomcat
-acitivi
+activiti
 
 Change on the Inventory server selected the group according to the file configuration. ("web" in my case).
 
