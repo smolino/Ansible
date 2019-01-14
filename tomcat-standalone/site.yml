@@ -9,4 +9,3 @@
   roles:
     - selinux
     - tomcat
-    - activiti
