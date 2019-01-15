@@ -1,1 +1,1 @@
-mysql < /opt/dbcreate.sql
+mysql < /opt/createdb.sql
