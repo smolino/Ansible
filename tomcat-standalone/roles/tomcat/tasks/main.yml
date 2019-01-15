@@ -28,9 +28,12 @@
 
 - name: copy template sql
   template: src=createdb.sql dest=/opt/
+  
+- name: copy template sql
+  template: src=createdb.sh dest=/opt/ mode=0766
 
 - name: create database
-  command: chdir=/usr /bin/mysql < /opt/createdb.sql
+  command: chdir=/opt ./createdb.sh
 
 - name: Download Activiti
   get_url: url=https://github.com/Activiti/Activiti/releases/download/activiti-5.22.0/activiti-5.22.0.zip dest=/opt/activiti-5.22.0.zip
