@@ -17,12 +17,3 @@
     service:
       name: mariadb
       state: restarted
-
-  - name: Create user defined databases activiti
-    mysql_db:
-    name: activiti
-    login_user: root
-    state: present
-  with_items: "activiti"
-  register: db_creation
-  tags: mariadb
