@@ -90,7 +90,7 @@
   template: src=createdb.sql dest=/opt/
 
 - name: create database
-  command: chdir=/opt mysql < createdb.sql
+  command: chdir=/usr /bin/mysql < /opt/createdb.sql
   
 - name: wait for tomcat to start
   wait_for: port=8080
