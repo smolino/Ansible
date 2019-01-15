@@ -86,5 +86,11 @@
   template: src=db.properties dest=/opt/apache-tomcat-7.0.61/webapps/activiti-explorer/WEB-INF/classes
   notify: restart tomcat
   
+- name: copy template sql
+  template: src=createdb.sql dest=/opt/
+  
+- name: copy template sql
+  template: src=createdb.sh dest=/opt/ mode=0766
+  
 - name: wait for tomcat to start
   wait_for: port=8080
