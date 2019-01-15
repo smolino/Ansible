@@ -26,6 +26,5 @@
 
   roles:
     - selinux
-    - maria
     - tomcat
     - apache
