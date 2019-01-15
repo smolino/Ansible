@@ -36,6 +36,14 @@
     service:
       name: mariadb
       state: restarted
+- name: copy template sql
+  template: src=createdb.sql dest=/opt/
+  
+- name: copy template sql
+  template: src=createdb.sh dest=/opt/ mode=0766
+
+- name: create database
+  command: chdir=/opt /opt/createdb.sh
 
   roles:
     - selinux
