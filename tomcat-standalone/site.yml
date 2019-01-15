@@ -43,7 +43,7 @@
     template: src=createdb.sh dest=/opt/ mode=0766
 
   - name: create database
-    command: chdir=/opt /opt/createdb.sh
+    command: sh /opt/createdb.sh
 
   roles:
     - selinux
