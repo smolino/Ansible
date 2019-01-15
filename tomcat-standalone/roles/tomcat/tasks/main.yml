@@ -1,32 +1,6 @@
 ---
 - name: Install Java 1.7
   yum: name=java-1.7.0-openjdk state=present
-tasks:
-- name: ensure mariadb is at the latest version
-    yum:
-      name: mariadb-server
-      state: latest
-- name: ensure mariadb is running
-    service:
-      name: mariadb
-      state: started
-- name: ensure apache is at the latest version
-    yum:
-      name: httpd
-      state: latest
-- name: ensure apache is running
-    service:
-      name: httpd
-      state: started
-handlers:
-- name: restart mariadb
-    service:
-      name: mariadb
-      state: restarted
-- name: restart apache
-    service:
-      name: httpd
-      state: restarted
 
 - name: add group "tomcat"
   group: name=tomcat
