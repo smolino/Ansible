@@ -38,6 +38,9 @@
 - name: Copy 2nd war to webapp
   command: cp /opt/activiti-5.22.0/wars/activiti-rest.war /opt/apache-tomcat-7.0.61/webapps/
 
+- name: Copy jar to lib
+  command: cp /opt/mysql-connector-java-5.1.21.jar /opt/apache-tomcat-7.0.61/lib
+
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
   notify: restart tomcat
