@@ -29,8 +29,8 @@
 - name: copy template sql
   template: src=createdb.sql dest=/opt/
 
-- name: create database
-  command: chdir=/usr /bin/mysql < /opt/createdb.sql
+#- name: create database
+#  command: chdir=/usr /bin/mysql < /opt/createdb.sql
 
 - name: Download Activiti
   get_url: url=https://github.com/Activiti/Activiti/releases/download/activiti-5.22.0/activiti-5.22.0.zip dest=/opt/activiti-5.22.0.zip
@@ -88,9 +88,9 @@
 - name: wait for tomcat to start
   wait_for: port=8080
   
-- name: Configure Tomcat server
-  template: src=db.properties dest=/opt/apache-tomcat-7.0.61/webapps/activiti-explorer/WEB-INF/classes
-  notify: restart tomcat
+#- name: Configure Tomcat server
+#  template: src=db.properties dest=/opt/apache-tomcat-7.0.61/webapps/activiti-explorer/WEB-INF/classes
+#  notify: restart tomcat
   
-- name: wait for tomcat to start
-  wait_for: port=8080
+#- name: wait for tomcat to start
+#  wait_for: port=8080
