@@ -42,7 +42,7 @@
   get_url: url=http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-5.1.21.jar.zip dest=/opt/
 
 - name: Extract archive mysql-connector
-  command: chdir=/usr/share /bin/unzip /opt/ -C /opt/ creates=/opt/mysql-connector-java-5.1.21.jar
+  command: chdir=/usr/share /bin/unzip /opt/mysql-connector-java-5.1.21.jar.zip -d /opt/
 
 - name: Copy jar to lib
   command: cp /opt/mysql-connector-java-5.1.21.jar /opt/apache-tomcat-7.0.61/lib
