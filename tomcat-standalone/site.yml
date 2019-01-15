@@ -8,8 +8,8 @@
   vars:
     http_port: 80
     max_clients: 200
-  tasks:
   
+  tasks:
   - name: ensure apache is at the latest version
     yum:
       name: httpd
@@ -19,10 +19,10 @@
       name: httpd
       state: started
   handlers:
-    - name: restart apache
-      service:
-        name: httpd
-        state: restarted
+  - name: restart apache
+     service:
+       name: httpd
+       state: restarted
 
   roles:
     - selinux
