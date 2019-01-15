@@ -17,3 +17,7 @@
     service:
       name: mariadb
       state: restarted
+  - name: Create a new database with name 'activiti'
+    mysql_db:
+      name: activiti
+      state: present
