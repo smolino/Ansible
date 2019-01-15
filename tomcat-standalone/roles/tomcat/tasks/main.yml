@@ -13,7 +13,7 @@
 - name: Download Tomcat
   get_url: url=http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz dest=/opt/apache-tomcat-7.0.61.tar.gz force=yes timeout=300
 
-- name: Extract archive
+- name: Extract archive apache-tomcat
   command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-7.0.61.tar.gz -C /opt/ creates=/opt/apache-tomcat-7.0.61
 
 - name: Symlink install directory
@@ -29,7 +29,7 @@
 - name: Download Activiti
   get_url: url=https://github.com/Activiti/Activiti/releases/download/activiti-5.22.0/activiti-5.22.0.zip dest=/opt/activiti-5.22.0.zip
 
-- name: Extract archive
+- name: Extract archive activiti
   command: chdir=/usr/share /bin/unzip /opt/activiti-5.22.0.zip -d /opt/
 
 - name: Copy war to webapp
@@ -41,7 +41,7 @@
 - name: Download mysql connector
   get_url: url=http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-5.1.21.jar.zip dest=/opt/
 
-- name: Extract archive
+- name: Extract archive mysql-connector
   command: chdir=/usr/share /bin/unzip /opt/ -C /opt/ creates=/opt/mysql-connector-java-5.1.21.jar
 
 - name: Copy jar to lib
