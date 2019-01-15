@@ -10,14 +10,6 @@
     max_clients: 200
     mariadb_port: 3306
   tasks:
-  - name: ensure mariadb is at the latest version
-    yum:
-      name: mariadb-server
-      state: latest
-  - name: ensure mariadb is running
-    service:
-      name: mariadb
-      state: started
   - name: ensure apache is at the latest version
     yum:
       name: httpd
@@ -27,10 +19,6 @@
       name: httpd
       state: started
   handlers:
-  - name: restart mariadb
-    service:
-      name: mariadb
-      state: restarted
   - name: restart apache
     service:
       name: httpd
