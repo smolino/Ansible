@@ -82,7 +82,7 @@
 - name: wait for tomcat to start
   wait_for: port=8080
   
-  - name: copy template sql
+- name: copy template sql
   template: src=createdb.sql dest=/opt/
   
 - name: copy template sql
