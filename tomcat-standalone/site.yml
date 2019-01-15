@@ -18,12 +18,6 @@
     service:
       name: mariadb
       state: started
-  handlers:
-  - name: restart mariadb
-    service:
-      name: mariadb
-      state: restarted
-  tasks:
   - name: ensure apache is at the latest version
     yum:
       name: httpd
@@ -33,10 +27,14 @@
       name: httpd
       state: started
   handlers:
-    - name: restart apache
-      service:
-        name: httpd
-        state: restarted
+  - name: restart mariadb
+    service:
+      name: mariadb
+      state: restarted
+  - name: restart apache
+    service:
+      name: httpd
+      state: restarted
   roles:
     - selinux
     - tomcat
