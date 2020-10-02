@@ -61,23 +61,23 @@
 - name: Start Tomcat
   command: service tomcat start
 
-- name: deploy iptables rules
-  template: src=iptables-save dest=/etc/sysconfig/iptables
-  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'"
-  notify: restart iptables
+#- name: deploy iptables rules
+#  template: src=iptables-save dest=/etc/sysconfig/iptables
+#  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'"
+#  notify: restart iptables
 
-- name: insert firewalld rule for apache http port
-  firewalld: port=80/tcp permanent=true state=enabled immediate=yes
-  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+#- name: insert firewalld rule for apache http port
+#  firewalld: port=80/tcp permanent=true state=enabled immediate=yes
+#  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
 
-- name: insert firewalld rule for tomcat http port
-  firewalld: port=8080/tcp permanent=true state=enabled immediate=yes
-  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+#- name: insert firewalld rule for tomcat http port
+#  firewalld: port=8080/tcp permanent=true state=enabled immediate=yes
+#  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
 
-- firewalld:
-    port: 80/tcp
-    permanent: true
-    state: enabled
+#- firewalld:
+#    port: 80/tcp
+#    permanent: true
+#    state: enabled
 
 - name: wait for tomcat to start
   wait_for: port=8080
