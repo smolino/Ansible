@@ -2,7 +2,7 @@
 - hosts: web
   vars:
     mariadb_port: 3306
-  remote_user: root
+#  remote_user: centos
   tasks:
   - name: ensure mariadb is at the latest version
     yum:
